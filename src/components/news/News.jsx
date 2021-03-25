@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
 
 // TODO: Ath villuskilaboð
-// TODO: Link á frétt
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -79,10 +79,13 @@ export function News({ category, quantity, expandable }) {
           <div>
             {headlines.map((item) => {
               return (
-                <p>{item.title}</p>
+                <p><a href={item.link}>{item.title}</a></p>
               )
             })}
           </div>
+          <Link to={{ pathname: nextPath, }}>
+            {expandable ? "Allar fréttir" : "Til baka"}
+          </Link>
         </div>
       );
     }

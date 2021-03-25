@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { News } from "../news/News";
 
 // TOOD: Ath villuskilaboð
-// TODO: Link á fréttaflokkssíðu
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
