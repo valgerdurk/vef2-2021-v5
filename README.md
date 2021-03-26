@@ -11,4 +11,4 @@ npm start
 npm test #Keyrir eslint
 ```
 
-[Heroku]https://vef2-v5-vala.herokuapp.com/
+[Heroku](https://vef2-v5-vala.herokuapp.com/)
