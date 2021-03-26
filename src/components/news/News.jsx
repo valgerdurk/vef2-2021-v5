@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
 
-// TODO: Ath villuskilaboð
+import { NotFound } from '../../pages/NotFound';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -36,6 +36,10 @@ export function News({ category, quantity, expandable }) {
           const result = await fetch(`${apiUrl}${category}`);
 
           if (!result.ok) {
+            if(result.status === 404) {
+              setError('404');
+              return;
+            }
             throw new Error('Tókst ekki að sækja gögn');
           }
 
@@ -53,9 +57,15 @@ export function News({ category, quantity, expandable }) {
     }, [category]);
 
     if (error) {
-      return (
-        <p>Villa kom upp: {error}</p>
-      );
+      if (error === '404') {
+        return (
+          <NotFound></NotFound>
+        );
+      } else {
+        return (
+          <p>Villa kom upp: {error}</p>
+        );
+      }
     }
 
     if (loading) {

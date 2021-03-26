@@ -14,7 +14,7 @@ export default function App() {
       <section>
         <Switch>
           <Route exact path="/" component={Index}/>
-          <Route path="/:id" component={NewsPage}/>
+          <Route exact path="/:id" component={NewsPage}/>
           <Route component={NotFound}/>
         </Switch>
       </section>

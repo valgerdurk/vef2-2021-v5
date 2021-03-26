@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 import { News } from "../news/News";
 
-// TOOD: Ath villuskilaboð
-
 const apiUrl = process.env.REACT_APP_API_URL;
 
 export function NewsList() {
@@ -50,7 +48,6 @@ export function NewsList() {
   }
 
   const news = Array.from(data);
-  console.log(news);
 
   return (
     <div>
