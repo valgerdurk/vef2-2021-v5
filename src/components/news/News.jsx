@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 
 import { NotFound } from '../../pages/NotFound';
 
+import s from './News.module.scss';
+
 const apiUrl = process.env.REACT_APP_API_URL;
 
 News.propTypes = {
@@ -84,17 +86,17 @@ export function News({ category, quantity, expandable }) {
       }
 
       return (
-        <div>
+        <div className={s.news}>
           <h2>{data.title}</h2>
-          <div>
+          <ul className={s.news__list}>
             {headlines.map((item) => {
               return (
-                <p><a href={item.link}>{item.title}</a></p>
+                <li className={s.news__item}><a className={s.news__link} href={item.link}>{item.title}</a></li>
               )
             })}
-          </div>
-          <Link to={{ pathname: nextPath, }}>
-            {expandable ? "Allar fréttir" : "Til baka"}
+          </ul>
+          <Link className={s.news__page}to={{ pathname: nextPath, }}>
+            {expandable ? "Sjá allar fréttir í þessum flokki" : "Til baka"}
           </Link>
         </div>
       );

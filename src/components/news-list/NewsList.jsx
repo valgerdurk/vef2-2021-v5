@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import { News } from "../news/News";
+import { News } from '../news/News';
+import s from './NewsList.module.scss';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -50,10 +51,10 @@ export function NewsList() {
   const news = Array.from(data);
 
   return (
-    <div>
+    <div className={s.newslist__row}>
       {news.map((item) => {
         return (
-            <div>
+            <div className={s.newslist__col}>
               <News category={item.id} quantity={5} expandable={true} />
             </div>
           );

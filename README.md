@@ -8,7 +8,7 @@ Keyrt með:
 #Setja REACT_APP_API_URL í env
 npm install
 npm start
-npm test #Keyrir eslint og stylelint
+npm test #Keyrir eslint
 ```
 
 [Heroku]
